@@ -1,0 +1,210 @@
+﻿body {
+    margin: 0;
+}
+
+@font-face {
+    font-family: Coustard;
+    src: url("../Fonts/Coustard/Coustard-Regular.ttf");
+}
+
+.Header {
+    width: 100%;
+    height: 40px;
+    background: black;
+    position: fixed;
+    align-items: center;
+    z-index: 2;
+}
+
+.FGeek {
+    color: white;
+    font-size: 30px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.LogIn {
+    position: relative;
+    top: -90%;
+    left: 93%;
+}
+
+.LogInRef {
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.HeaderProfile {
+    position: relative;
+    top: -90%;
+    left: 93%;
+}
+
+.HeaderProfileRef {
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.LeftBorder {
+    width: 15%;
+    height: 100%;
+    background: black;
+    position: fixed;
+    align-items: center;
+}
+
+.MainContent {
+    background-color: white;
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 15%;
+    z-index: 1;
+}
+
+.Profile {
+    position: relative;
+    top: 100px;
+    left: 50%;
+    align-content: center;
+}
+
+.ProfileRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Home {
+    position: relative;
+    top: 125px;
+    left: 50%;
+    align-content: center;
+}
+
+.HomeRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Search {
+    position: relative;
+    top: 150px;
+    left: 50%;
+    align-content: center;
+}
+
+.SearchRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Likes {
+    position: relative;
+    top: 175px;
+    left: 50%;
+    align-content: center;
+}
+
+.LikesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Movies {
+    position: relative;
+    top: 200px;
+    left: 50%;
+    align-content: center;
+}
+
+.MoviesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Series {
+    position: relative;
+    top: 225px;
+    left: 50%;
+    align-content: center;
+}
+
+.SeriesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}

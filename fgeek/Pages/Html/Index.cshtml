@@ -1,0 +1,55 @@
+﻿@page
+
+@model fgeek.Pages.Html.IndexModel
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>f.geek</title>
+        <link rel="stylesheet" href="../Assets/Styles/IndexStyles.css" />
+    </head>
+
+    <body>
+        <div class="Header">
+            <div class="FGeek">f.geek</div>
+            @if (!Model.IsAuthenticated)
+            {
+                <div class="LogIn">
+                    <a class="LogInRef" href="/login" target="_self">Log In</a>
+                </div>
+            }
+            else
+            {
+                <div class="HeaderProfile">
+                    <a class="HeaderProfileRef" href="/profile" target="_self">@Model.CurrentUsername</a>
+                </div>
+            }
+        </div>
+
+        <div class="LeftBorder">
+            <div class="Profile">
+                <a class="ProfileRef" href="/profile" target="_self">Profile</a>
+            </div>
+            <div class="Home">
+                <a class="HomeRef" href="/" target="_self">Home</a>
+            </div>
+            <div class="Search">
+                <a class="SearchRef" href="/search" target="_self">Search</a>
+            </div>
+            <div class="Likes">
+                <a class="LikesRef" href="/likes" target="_self">Likes</a>
+            </div>
+            <div class="Movies">
+                <a class="MoviesRef" href="/movies" target="_self">Movies</a>
+            </div>
+            <div class="Series">
+                <a class="SeriesRef" href="/series" target="_self">Series</a>
+            </div>
+        </div>
+
+        <div class="MainContent">
+
+        </div>
+    </body>
+</html>

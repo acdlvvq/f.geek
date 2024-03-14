@@ -1,0 +1,130 @@
+﻿@page
+
+@model fgeek.Pages.Html.LoginModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Authorization</title>
+    <link rel="stylesheet" href="../Assets/Styles/LoginStyles.css" />
+</head>
+
+<body>
+    <div class="Header">
+        <div class="FGeek">f.geek</div>
+    </div>
+
+    <div class="Main" id="main">
+        <form class="Registration" id="registration" method="post">
+            <div class="RegistrationFrame"></div>
+            <div class="RegistrationText">Create f.geek Account</div>
+
+            <input class="Email"
+                   id="registrationEmail"
+                   type="email"
+                   placeholder="E-Mail"
+                   name="registrationEmail" />
+            <input class="Username"
+                   id="registrationUsername"
+                   type="text"
+                   placeholder="Username"
+                   name="registrationUsername" />
+            <input class="Password"
+                   id="registrationPassword"
+                   type="password"
+                   placeholder="Password"
+                   name="registrationPassword" />
+            <div class="RegistrationErrorMessage"
+                 id="registrationErrorMessage" >
+                    @Model.ErrorMessage
+            </div>  
+            <input class="Submit"
+                   id="registrationSubmit"
+                   type="submit"
+                   value="Create" />
+        </form>
+
+        <form class="Authorization" id="authorization" method="post">
+            <div class="AuthorizationFrame"></div>
+            <div class="AuthorizationText">Sign In Your Account</div>
+
+            <input class="Email"
+                   id="authorizationEmail"
+                   type="email"
+                   placeholder="E-Mail"
+                   name="authorizationEmail" />
+            <input class="Password"
+                   id="authorizationPassword"
+                   type="password"
+                   placeholder="Password"
+                   name="authorizationPassword" />
+            <input class="Submit" 
+                   id="authorizationSubmit"
+                   type="submit"
+                   value="Sign In" />
+        </form>
+
+        <div class="Switch">
+            <input class="SignIn" id="switchButton" type="button" value="Already have account?
+Sign in" />
+        </div>
+
+        <div class="Title">
+            <div class="BackgroundTitleFrame">
+                <div class="BackgroundTitle" id="BackgroundTitle">Pulp Fiction, 1994</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const images = [
+            "url('../assets/images/background_1.jpg')",
+            "url('../assets/images/background_2.jpg')",
+            "url('../assets/images/background_3.jpg')"
+        ]
+
+        const inner = [
+            'Pulp Fiction, 1994',
+            'Breaking Bad, 2008',
+            'Snowfall, 2017'
+        ];
+
+        let i = 0;
+        function changeTextAndBackground() {
+            document.body.style.backgroundImage = images[i];
+            document.getElementById('BackgroundTitle').textContent = inner[i];
+            i = (i + 1) % inner.length;
+        }
+
+        const button = document.getElementById('switchButton');
+        const registration = document.getElementById('registration');
+        const authorization = document.getElementById('authorization');
+        button.addEventListener('click', () => {
+            if (registration.style.display === "none") {
+                button.value = "Already have account?\nSign in";
+                registration.style.display = "block";
+                authorization.style.display = "none";
+                document.getElementById('authorizationEmail').value = '';
+                document.getElementById('authorizationPassword').value = '';
+            } else {
+                button.value = "Don't have account?\nCreate";
+                registration.style.display = "none";
+                authorization.style.display = "block";
+                document.getElementById('registrationEmail').value = '';
+                document.getElementById('registrationUsername').value = '';
+                document.getElementById('registrationPassword').value = '';
+            }
+        });
+
+        setInterval(changeTextAndBackground, 5000);
+
+        window.onload = () => {
+            button.value = "Don't have account?\nCreate";
+            registration.style.display = "none";
+            authorization.style.display = "block";
+        };
+    </script>
+
+</body>
+</html>

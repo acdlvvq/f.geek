@@ -1,0 +1,255 @@
+﻿body {
+    margin: 0;
+    background: url("../Images/background_1.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: Coustard;
+    src: url("../Fonts/Coustard/Coustard-Regular.ttf");
+}
+
+.Header {
+    width: 100%;
+    height: 40px;
+    background: black;
+    position: fixed;
+    align-items: center;
+}
+
+.FGeek {
+    color: white;
+    font-size: 30px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Main {
+    position: absolute;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Registration {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 430px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0);
+}
+
+.Authorization {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 430px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0);
+}
+
+.RegistrationFrame {
+    position: relative;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 253.94, 253.94, 0.47);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px black solid;
+}
+
+.AuthorizationFrame {
+    position: relative;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 253.94, 253.94, 0.47);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px black solid;
+}
+
+.RegistrationText {
+    position: relative;
+    top: -97%;
+    left: -50%;
+    color: black;
+    font-size: 30px;
+    font-family: Coustard;
+    font-weight: 800;
+    letter-spacing: 0.41px;
+    text-align: center;
+}
+
+.AuthorizationText {
+    position: relative;
+    top: -97%;
+    left: -50%;
+    color: black;
+    font-size: 30px;
+    font-family: Coustard;
+    font-weight: 800;
+    letter-spacing: 0.41px;
+    text-align: center;
+}
+
+.Email {
+    position: relative;
+    width: 70%;
+    height: 10%;
+    background: #D9D9D9;
+    border: 3px black solid;
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 500;
+    border-radius: 5px;
+    outline: 0;
+}
+
+#registrationEmail {
+    top: -95%;
+    left: -35%;
+}
+
+#authorizationEmail {
+    top: -95%;
+    left: -35%;
+}
+
+.Username {
+    position: relative;
+    top: -90%;
+    left: -35%;
+    width: 70%;
+    height: 10%;
+    background: #D9D9D9;
+    border: 3px black solid;
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 500;
+    border-radius: 5px;
+    outline: 0;
+}
+
+.Password {
+    position: relative;
+    width: 70%;
+    height: 10%;
+    background: #D9D9D9;
+    border: 3px black solid;
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 500;
+    border-radius: 5px;
+    outline: 0;
+}
+
+#registrationPassword {
+    top: -85%;
+    left: -35%;
+}
+
+#authorizationPassword {
+    top: -90%;
+    left: -35%;
+}
+
+.RegistrationErrorMessage {
+    position: relative;
+    top: -80%;
+    left: -50%;
+    color: red;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 800;
+    letter-spacing: 0.41px;
+    text-align: center;
+}
+
+.Submit {
+    position: relative;
+    width: 40%;
+    height: 15%;
+    background: black;
+    border: none;
+    border-radius: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    color: white;
+    font-size: x-large;
+    text-align: center;
+}
+
+#registrationSubmit {
+    top: -75%; /*62*/
+    left: -20%;
+}
+
+#authorizationSubmit {
+    top: -60%;
+    left: -20%;
+}
+
+.Switch {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 300px;
+    height: 75px;
+}
+
+.SignIn {
+    position: relative;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    font-family: Coustard;
+    font-size: large;
+    text-align: center;
+}
+
+.Title {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    width: 300px;
+    height: 75px;
+}
+
+.BackgroundTitleFrame {
+    position: relative;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+}
+
+.BackgroundTitle {
+    position: relative;
+    top: 33%;
+    color: white;
+    font-family: Coustard;
+    font-size: large;
+    text-align: center;
+}
