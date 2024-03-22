@@ -12,7 +12,7 @@ namespace fgeek.Services
         public AccountService(IDatabaseService _databaseService)
         {
             this.databaseService = _databaseService;
-            databaseService.OpenAsync("Accounts.db").Wait();
+            databaseService.Open("Accounts.db");
         }
 
         public async Task<bool> IsAlreadyTakenField(Func<User, bool> compare)

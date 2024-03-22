@@ -5,7 +5,7 @@ namespace fgeek.Services.Interfaces
 {
     public interface IDatabaseService
     {
-        public Task OpenAsync(string path);
+        public void Open(string path);
         public Task<int> InsertAsync<T>(T item) where T : IEntity;
         public Task<IEnumerable<T>> TableAsync<T>() where T : IEntity, new();
     }   

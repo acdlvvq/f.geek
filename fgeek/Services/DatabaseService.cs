@@ -14,7 +14,7 @@ namespace fgeek.Services
 
         }
 
-        public async Task OpenAsync(string path)
+        public void Open(string path)
         {
             var databasePath = Path.Combine
             (
@@ -23,7 +23,6 @@ namespace fgeek.Services
             );
 
             connection = new(databasePath);
-            await connection.CreateTableAsync<User>();
         }  
 
         public async Task<int>InsertAsync<T>(T item) where T : IEntity

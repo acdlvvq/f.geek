@@ -1,6 +1,5 @@
 ﻿body {
     margin: 0;
-    overflow-x: hidden;
 }
 
 @font-face {
@@ -247,54 +246,11 @@
     text-align: center;
 }
 
-.SearchResults {
-    position: relative;
-    top: 70px;
-    left: 35px;
-}
-
 .SearchItem {
     border: 3px solid black;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 1300px;
-    height: 300px;
-    list-style: none;
 }
 
 .ItemPoster {
-    position: relative;
-    top: 20px;
-    left: 20px;
     width: auto;
     height: 200px;
-}
-
-.ItemTitle {
-    font-family: Coustard;
-    font-weight: 400;
-    font-size: x-large;
-    position: relative;
-    top: -185px;
-    left: 200px;
-}
-
-.ItemInfo {
-    font-family: Coustard;
-    font-weight: 400;
-    font-size: medium;
-    position: relative;
-    top: -180px;
-    left: 200px;
-}
-
-.ItemDescription {
-    font-family: Coustard;
-    font-weight: 400;
-    font-size: large;
-    position: relative;
-    top: -175px;
-    left: 200px;
-    width: 1100px;
 }

@@ -17,7 +17,8 @@ namespace fgeek
                              AddCookie(options => options.LoginPath = "/Login");
             builder.Services.AddAuthorization();
             builder.Services.AddSingleton<IDatabaseService, DatabaseService>().
-                             AddSingleton<IAccountService, AccountService>();
+                             AddSingleton<IAccountService, AccountService>().
+                             AddSingleton<ISearchingService, SearchingService>();
             builder.Services.AddRazorPages
             (
                 (options) => 
