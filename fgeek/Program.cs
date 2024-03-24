@@ -18,7 +18,7 @@ namespace fgeek
             builder.Services.AddAuthorization();
             builder.Services.AddSingleton<IDatabaseService, DatabaseService>().
                              AddSingleton<IAccountService, AccountService>().
-                             AddSingleton<ISearchingService, SearchingService>();
+                             AddSingleton<IMovieService, MovieService>();
             builder.Services.AddRazorPages
             (
                 (options) => 

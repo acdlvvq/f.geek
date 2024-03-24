@@ -6,7 +6,7 @@
     <head>
         <title>Search</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../Assets/Styles/Styles.css" />
+        <link rel="stylesheet" href="../Assets/Styles/SearchStyles.css" />
     </head>
     
     <body>
@@ -65,7 +65,7 @@
                 <ul>
                     @foreach (var item in Model.SearchingResult)
                     {
-                        <li class="SearchItem">
+                        <li class="SearchItem" onclick="location.href='/movie?id=@item!.Id';" style="cursor:pointer;">
                             <img class="ItemPoster" src=@item!.PosterURL />
                             <div class="ItemTitle">@item!.Title</div>
                             <div class="ItemInfo">@item!.Runtime min, @item!.LikesCount like(s)</div>

@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using fgeek.Entities.Interfaces;
+using SQLite;
 using System.Text;
 
 namespace fgeek.Entities

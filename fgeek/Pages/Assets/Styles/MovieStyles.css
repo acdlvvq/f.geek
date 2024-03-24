@@ -1,0 +1,563 @@
+﻿body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: Coustard;
+    src: url("../Fonts/Coustard/Coustard-Regular.ttf");
+}
+
+.Header {
+    width: 100%;
+    height: 40px;
+    background: black;
+    position: fixed;
+    align-items: center;
+    z-index: 2;
+}
+
+.FGeek {
+    color: white;
+    font-size: 30px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.LogIn {
+    position: relative;
+    top: -90%;
+    left: 93%;
+}
+
+.LogInRef {
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.HeaderProfile {
+    position: relative;
+    top: -90%;
+    left: 93%;
+}
+
+.HeaderProfileRef {
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.LeftBorder {
+    width: 15%;
+    height: 100%;
+    background: black;
+    position: fixed;
+    align-items: center;
+}
+
+.MainContent {
+    background-color: white;
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 15%;
+    z-index: 1;
+}
+
+.Profile {
+    position: relative;
+    top: 100px;
+    left: 50%;
+    align-content: center;
+}
+
+.ProfileRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Home {
+    position: relative;
+    top: 125px;
+    left: 50%;
+    align-content: center;
+}
+
+.HomeRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Search {
+    position: relative;
+    top: 150px;
+    left: 50%;
+    align-content: center;
+}
+
+.SearchRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Likes {
+    position: relative;
+    top: 175px;
+    left: 50%;
+    align-content: center;
+}
+
+.LikesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Movies {
+    position: relative;
+    top: 200px;
+    left: 50%;
+    align-content: center;
+}
+
+.MoviesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Series {
+    position: relative;
+    top: 225px;
+    left: 50%;
+    align-content: center;
+}
+
+.SeriesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.MoviePoster {
+    position: relative;
+    top: 60px;
+    left: 100px;
+    width: auto;
+    height: 500px;
+}
+
+.MovieTitle {
+    font-family: Coustard;
+    font-size: 40px;
+    font-weight: 800;
+    position: relative;
+    top: -450px;
+    left: 500px;
+    width: 800px;
+}
+
+.MovieReleaseDateHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -425px;
+    left: 500px;
+    color: black;
+}
+
+.MovieReleaseDate {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -450px;
+    left: 750px;
+}
+
+.MovieProductionCountriesHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -450px;
+    left: 500px;
+}
+
+.MovieProductionCountries {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -475px;
+    left: 750px;
+}
+
+.MovieGenresHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -475px;
+    left: 500px;
+}
+
+.MovieGenres {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -500px;
+    left: 750px;
+}
+
+.MovieTaglineHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -500px;
+    left: 500px;
+}
+
+.MovieTagline {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -525px;
+    left: 750px;
+    width: 630px;
+}
+
+.MovieBudgetHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -525px;
+    left: 500px;
+}
+
+.MovieBudget {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -550px;
+    left: 750px;
+}
+
+.MovieRevenueHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -550px;
+    left: 500px;
+}
+
+.MovieRevenue {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -575px;
+    left: 750px;
+}
+
+.MovieRatingHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -575px;
+    left: 500px;
+}
+
+.MovieRating {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -600px;
+    left: 750px;
+}
+
+.MovieRuntimeHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -600px;
+    left: 500px;
+}
+
+.MovieRuntime {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -625px;
+    left: 750px;
+}
+
+.MovieIMDbRatingHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -625px;
+    left: 500px;
+}
+
+.MovieIMDbRating {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -650px;
+    left: 750px;
+}
+
+.MovieRottenTomatoesRatingHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -650px;
+    left: 500px;
+}
+
+.MovieRottenTomatoesRating {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -675px;
+    left: 750px;
+}
+
+.MovieMetacriticRatingHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -675px;
+    left: 500px;
+}
+
+.MovieMetacriticRating {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -700px;
+    left: 750px;
+}
+
+.MovieDirectorHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -700px;
+    left: 500px;
+}
+
+.MovieDirector {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -725px;
+    left: 750px;
+    width: 630px;
+}
+
+.MoviePlotWritersHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -725px;
+    left: 500px;
+}
+
+.MoviePlotWriters {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -750px;
+    left: 750px;
+    width: 630px;
+}
+
+.MovieProducerHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -750px;
+    left: 500px;
+}
+
+.MovieProducer {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -775px;
+    left: 750px;
+    width: 630px;
+}
+
+.MovieOperatorHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -775px;
+    left: 500px;
+}
+
+.MovieOperator {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -800px;
+    left: 750px;
+    width: 630px;
+}
+
+.MovieComposerHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -800px;
+    left: 500px;
+}
+
+.MovieComposer {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -825px;
+    left: 750px;
+    width: 630px;
+}
+
+.MovieEditorHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -825px;
+    left: 500px;
+}
+
+.MovieEditor {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -850px;
+    left: 750px;
+    width: 630px;
+}
+
+.MovieDescription {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -800px;
+    left: 100px;
+    width: 1250px;
+    text-indent: 50px;
+}
+
+.CastHeader {
+    font-family: Coustard;
+    font-size: large;
+    font-weight: 400;
+    position: relative;
+    top: -800px;
+    left: 500px;
+}

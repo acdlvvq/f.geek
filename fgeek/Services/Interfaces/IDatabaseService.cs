@@ -1,4 +1,4 @@
-﻿using fgeek.Entities;
+﻿using fgeek.Entities.Interfaces;
 using SQLite;
 
 namespace fgeek.Services.Interfaces

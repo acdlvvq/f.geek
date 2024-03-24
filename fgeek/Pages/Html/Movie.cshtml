@@ -1,0 +1,108 @@
+﻿@page
+@model fgeek.Pages.Html.MovieModel
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movie</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../Assets/Styles/Style.css"/>
+    </head>
+
+    <body>
+        <div class="Header">
+            <div class="FGeek">f.geek</div>
+            @if (!Model.IsAuthenticated)
+            {
+                <div class="LogIn">
+                    <a class="LogInRef" href="/login" target="_self">Log In</a>
+                </div>
+            }
+            else
+            {
+                <div class="HeaderProfile">
+                    <a class="HeaderProfileRef" href="/profile" target="_self">@Model.CurrentUsername</a>
+                </div>
+            }
+        </div>
+
+        <div class="LeftBorder">
+            <div class="Profile">
+                <a class="ProfileRef" href="/profile" target="_self">Profile</a>
+            </div>
+            <div class="Home">
+                <a class="HomeRef" href="/" target="_self">Home</a>
+            </div>
+            <div class="Search">
+                <a class="SearchRef" href="/search" target="_self">Search</a>
+            </div>
+            <div class="Likes">
+                <a class="LikesRef" href="/likes" target="_self">Likes</a>
+            </div>
+            <div class="Movies">
+                <a class="MoviesRef" href="/movies" target="_self">Movies</a>
+            </div>
+            <div class="Series">
+                <a class="SeriesRef" href="/series" target="_self">Series</a>
+            </div>
+        </div>
+
+        <div class="MainContent">
+            <img class="MoviePoster" src=@Model.Movie?.PosterURL />
+            <div class="MovieTitle">@Model.Movie?.Title</div>
+            <div class="MovieReleaseDateHeader">Release Date</div>
+            <div class="MovieReleaseDate">@Model.Movie?.ReleaseDate</div>
+            <div class="MovieProductionCountriesHeader">Production Countries</div>
+            <div class="MovieProductionCountries">@Model.ProductionCountries()</div>
+            <div class="MovieGenresHeader">Genres</div>
+            <div class="MovieGenres">@Model.Genres()</div>
+            <div class="MovieTaglineHeader">Tagline</div>
+            <div class="MovieTagline">@Model.Movie?.Tagline</div>
+            <div class="MovieBudgetHeader">Budget</div>
+            <div class="MovieBudget">@Model.Movie?.Budget USD</div>
+            <div class="MovieRevenueHeader">Revenue</div>
+            <div class="MovieRevenue">@Model.Movie?.Revenue USD</div>
+            <div class="MovieRatingHeader">MPAA Rating</div>
+            <div class="MovieRating">@Model.Movie?.Rated</div>
+            <div class="MovieRuntimeHeader">Runtime</div>
+            <div class="MovieRuntime">@(Model.Movie?.Runtime / 60) h. @(Model.Movie?.Runtime % 60) min.</div>
+            <div class="MovieIMDbRatingHeader">IMDb</div>
+            <div class="MovieIMDbRating">@(Model.Movie?.IMDBRating / 10)/10</div>
+            <div class="MovieRottenTomatoesRatingHeader">Rotten Tomatoes</div>
+            <div class="MovieRottenTomatoesRating">@(Model.Movie?.RottenTomatoesRating)%</div>
+            <div class="MovieMetacriticRatingHeader">Metascore</div>
+            <div class="MovieMetacriticRating">@(Model.Movie?.MetacriticRating)/100</div>
+            <div class="MovieDirectorHeader">Director</div>
+            <div class="MovieDirector">@Model.Crew("Directing")</div>
+            <div class="MoviePlotWritersHeader">Plot</div>
+            <div class="MoviePlotWriters">@Model.Crew("Writing")</div>
+            <div class="MovieProducerHeader">Producer</div>
+            <div class="MovieProducer">@Model.Crew("Production")</div>
+            <div class="MovieOperatorHeader">Operator</div>
+            <div class="MovieOperator">@Model.Crew("Camera")</div>
+            <div class="MovieComposerHeader">Composer</div>
+            <div class="MovieComposer">@Model.Crew("Sound")</div>
+            <div class="MovieEditorHeader">Editor</div>
+            <div class="MovieEditor">@Model.Crew("Editing")</div>
+
+            <div class="Cast">In Leading Roles</div>
+            @foreach (var item in Model.Cast())
+            {
+                <div class="CastItem">@item!.Name</div>
+            }
+
+            <div class="VideosHeader">Trailers</div>
+            <ul>
+                @foreach (var item in Model.Video())
+                {
+                    <li class="VideoItemFrame">                
+                        <iframe class="VideoItem" src=@item.YouTubeURL></iframe>
+                    </li>
+                }   
+            </ul>
+
+            <div class="DescriptionHeader">Description</div>
+            <div class="MovieDescription">@(Model.Movie?.Description)</div>
+        </div>
+    </body>
+</html>

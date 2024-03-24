@@ -1,4 +1,4 @@
-﻿namespace fgeek.Entities
+﻿namespace fgeek.Entities.Interfaces
 {
     public interface IEntity
     {

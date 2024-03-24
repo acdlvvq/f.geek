@@ -9,13 +9,13 @@ namespace fgeek.Pages.Html
     public class SearchModel : PageModel
     {
         private readonly ILogger logger;
-        private readonly ISearchingService searchingService;
+        private readonly IMovieService searchingService;
         public bool IsAuthenticated { get; private set; } = false;
         public string CurrentUsername { get; private set; } = string.Empty;
         public string CurrentId { get; private set; } = string.Empty;
         public IEnumerable<Movie> SearchingResult { get; private set; } = [];
 
-        public SearchModel(ILoggerFactory loggerFactory, ISearchingService searchingService)
+        public SearchModel(ILoggerFactory loggerFactory, IMovieService searchingService)
         {
             this.logger = loggerFactory.CreateLogger<SearchModel>();
             this.searchingService = searchingService;

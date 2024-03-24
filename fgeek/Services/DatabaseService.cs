@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using SQLitePCL;
-using fgeek.Entities;
 using fgeek.Services.Interfaces;
+using fgeek.Entities.Interfaces;
 
 namespace fgeek.Services
 {
