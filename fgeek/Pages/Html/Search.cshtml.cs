@@ -34,7 +34,14 @@ namespace fgeek.Pages.Html
 
             if (q is not null)
             {
-                SearchingResult = await searchingService.GetMoviesAsync(q);
+                SearchingResult = (await searchingService.GetMoviesAsync(q)).OrderBy
+                (
+                    item => 
+                    {
+                        return item.LikesCount;
+                    }
+                ).Reverse();
+
                 logger.LogInformation
                 (
                     "[{DateTime}] - User '{Username}' : Search Request '{Request}' - Results: {Count}",

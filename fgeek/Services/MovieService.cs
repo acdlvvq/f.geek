@@ -15,8 +15,8 @@ namespace fgeek.Services
         public async Task<Movie?> MovieAsync(string id)
         {
             return (await databaseService.TableAsync<Movie>()).
-                    Where(item => item.Id == id)
-                    .FirstOrDefault();
+                    Where(item => item.Id == id).
+                    FirstOrDefault();
         }
 
         public async Task<IEnumerable<Genre>> GenresAsync(string id)
@@ -44,7 +44,8 @@ namespace fgeek.Services
         public async Task<IEnumerable<Movie>> GetMoviesAsync(string request)
         {
             return (await databaseService.TableAsync<Movie>()).
-                    Where(item => item.Title.Contains(request, StringComparison.CurrentCultureIgnoreCase));
+                    Where(item => item.Title.Contains
+                   (request, StringComparison.CurrentCultureIgnoreCase));
         }
 
         public async Task<IEnumerable<Crew>> CrewAsync(string id, string department)

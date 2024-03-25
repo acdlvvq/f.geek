@@ -3,7 +3,6 @@ using fgeek.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
-using System.Text;
 
 namespace fgeek.Pages.Html
 {
@@ -28,19 +27,25 @@ namespace fgeek.Pages.Html
 
         public async Task<IActionResult> OnPostAsync(string? id)
         {
+            var identity = HttpContext.User.Identity;
+            IsAuthenticated = (identity is not null) && identity.IsAuthenticated;
+
             if (id is not null)
             {
                 Movie = await movieService.MovieAsync(id);
 
-                if (Movie is null)  
-                {
-                    // Not Found Movie
-                    return Page();
-                }
             }
 
-            var identity = HttpContext.User.Identity;
-            IsAuthenticated = (identity is not null) && identity.IsAuthenticated;
+            if (Movie is null)  
+            {
+                if (IsAuthenticated)
+                {
+                    CurrentId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+                    CurrentUsername = identity!.Name!;
+                }
+
+                return Page();
+            }
 
             if (IsAuthenticated)
             {
@@ -55,6 +60,14 @@ namespace fgeek.Pages.Html
                     var update = movieService.UpdateMovieAsync(Movie!);
                     
                     Task.WaitAll(unlike, update);
+
+                    logger.LogInformation
+                    (
+                        "[{DateTime}] - User '{Username}' Unlikes Movie '{Title}'",
+                        DateTime.Now,
+                        CurrentUsername,
+                        Movie!.Title
+                    );
                 }
                 else
                 {
@@ -64,6 +77,14 @@ namespace fgeek.Pages.Html
                     var update = movieService.UpdateMovieAsync(Movie!);
 
                     Task.WaitAll(like, update);
+
+                    logger.LogInformation
+                    (
+                        "[{DateTime}] - User '{Username}' Likes Movie '{Title}'",
+                        DateTime.Now,
+                        CurrentUsername,
+                        Movie!.Title
+                    );
                 }
             }
 
@@ -75,31 +96,30 @@ namespace fgeek.Pages.Html
             var identity = HttpContext.User.Identity;
             IsAuthenticated = (identity is not null) && identity.IsAuthenticated;
 
+            if (id is not null)
+            {
+                Movie = await movieService.MovieAsync(id);
+
+            }
+
             if (IsAuthenticated)
             {
                 CurrentId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
                 CurrentUsername = identity!.Name!;
             }
 
-            if (id is not null)
+            if (Movie is null)
             {
-                Movie = await movieService.MovieAsync(id);
-
-                if (Movie is null)
-                {
-                    // Not Found Movie
-                    return Page();
-                }
-
-                logger.LogInformation
-                (
-                    "[{DateTime}] - User '{Username}' On Movie '{Name}'",
-                    DateTime.Now,
-                    CurrentUsername,
-                    Movie.Title
-                );
+                return Page();
             }
 
+            logger.LogInformation
+            (
+                "[{DateTime}] - User '{Username}' On Movie '{Name}'",
+                DateTime.Now,
+                CurrentUsername,
+                Movie!.Title
+            );
             return Page();
         }
 

@@ -1,6 +1,4 @@
-﻿using fgeek.Services.Interfaces;
-
-namespace fgeek.Services
+﻿namespace fgeek.Services
 {
     public static class ByteConverterService
     {

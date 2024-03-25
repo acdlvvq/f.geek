@@ -633,3 +633,13 @@
     width: 1300px;
     text-indent: 50px;
 }
+
+.ErrorMessage {
+    font-family: Coustard;
+    font-size: xx-large;
+    font-weight: 800;
+    position: relative;
+    top: 100px;
+    left: 100px;
+    color: black;
+}

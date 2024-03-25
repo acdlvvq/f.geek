@@ -1,9 +1,7 @@
 using Microsoft.Extensions.FileProviders;
-using fgeek.Middleware;
 using fgeek.Services;
 using fgeek.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using fgeek.Pages.Html;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace fgeek
@@ -25,7 +23,7 @@ namespace fgeek
                 {
                     options.RootDirectory = "/Pages/Html";
                     options.Conventions.
-                    ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+                        ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
                 }
             );
 

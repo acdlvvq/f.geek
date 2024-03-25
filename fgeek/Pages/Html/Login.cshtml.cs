@@ -14,7 +14,8 @@ namespace fgeek.Pages.Html
     {
         private readonly ILogger logger;
         private readonly IAccountService accountService;
-        public string ErrorMessage { get; private set; } = string.Empty;
+        public string RegistrationErrorMessage { get; private set; } = string.Empty;
+        public string AuthorizationErrorMessage { get; private set; } = string.Empty;
         public LoginModel(IAccountService accountService, ILoggerFactory loggerFactory)
         {
             this.accountService = accountService;
@@ -31,7 +32,7 @@ namespace fgeek.Pages.Html
                     registrationUsername is null ||
                     registrationPassword is null)
                 {
-                    ErrorMessage = string.Empty;
+                    RegistrationErrorMessage = string.Empty;
                     throw new Exception("Wrong Format Request");
                 }
 
@@ -73,7 +74,7 @@ namespace fgeek.Pages.Html
                         DateTime.Now,
                         ex.Message
                     );
-                    ErrorMessage = ex.Message;
+                    RegistrationErrorMessage = ex.Message;
                 }
                 return Page();
             }
@@ -87,7 +88,7 @@ namespace fgeek.Pages.Html
                 if (authorizationEmail is null ||
                     authorizationPassword is null)
                 {
-                    ErrorMessage = string.Empty;
+                    AuthorizationErrorMessage = string.Empty;
                     throw new Exception("Wrong Format Request");
                 }
 
@@ -126,17 +127,17 @@ namespace fgeek.Pages.Html
                         DateTime.Now,
                         ex.Message
                     );
-                    ErrorMessage = ex.Message;
+                    AuthorizationErrorMessage = ex.Message;
                 }
                 return Page();
             }
         }
 
         public async Task<IActionResult> OnPostAsync(string? registrationEmail,
-                                                    string? registrationUsername,
-                                                    string? registrationPassword,
-                                                    string? authorizationEmail,
-                                                    string? authorizationPassword)
+                                                     string? registrationUsername,
+                                                     string? registrationPassword,
+                                                     string? authorizationEmail,
+                                                     string? authorizationPassword)
         {
             if (authorizationEmail is null &&
                 authorizationPassword is null) 
@@ -152,5 +153,12 @@ namespace fgeek.Pages.Html
             }
         }
 
+        public IActionResult OnGet()
+        {
+            RegistrationErrorMessage = string.Empty;
+            AuthorizationErrorMessage = string.Empty;
+
+            return Page();
+        }
     }
 }

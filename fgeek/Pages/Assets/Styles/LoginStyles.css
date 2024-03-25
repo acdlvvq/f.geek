@@ -179,6 +179,18 @@
     text-align: center;
 }
 
+.AuthorizationErrorMessage {
+    position: relative;
+    top: -80%;
+    left: -50%;
+    color: red;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 800;
+    letter-spacing: 0.41px;
+    text-align: center;
+}
+
 .Submit {
     position: relative;
     width: 40%;
@@ -194,12 +206,12 @@
 }
 
 #registrationSubmit {
-    top: -75%; /*62*/
+    top: -75%;
     left: -20%;
 }
 
 #authorizationSubmit {
-    top: -60%;
+    top: -65%;
     left: -20%;
 }
 

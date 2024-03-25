@@ -6,7 +6,7 @@
     <head>
         <title>Movie</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../Assets/Styles/MovieStyles.css"/>
+        <link rel="stylesheet" href="../Assets/Styles/Style.css"/>
     </head>
 
     <body>
@@ -46,8 +46,9 @@
                 <a class="SeriesRef" href="/series" target="_self">Series</a>
             </div>
         </div>
-
-        <div class="MainContent">
+        @if (Model.Movie is not null)
+        {
+            <div class="MainContent">
             <img class="MoviePoster" src=@Model.Movie?.PosterURL />
             <div class="MovieTitle">@Model.Movie?.Title</div>
             <div class="LikesCount">@Model.Movie?.LikesCount</div>
@@ -110,17 +111,10 @@
             <div class="DescriptionHeader">Description</div>
             <div class="MovieDescription">@(Model.Movie?.Description)</div>
         </div>
-    </body>
-
-    <script type="text/javascript">
-        const filled = "url('../Assets/Images/filled-heart.png')";
-        const unfilled = "url('../Assets/Images/unfilled-heart.png')";
-
-        let likeButton = document.getElementById('likeButton');
-
-        /*likeButton.addEventListener("click", () => {
-
-        });*/
-    </script>
-
+        }
+        else
+        {
+            <div class="ErrorMessage">This Page Does Not Exist :(</div>   
+        }
+</body>
 </html>

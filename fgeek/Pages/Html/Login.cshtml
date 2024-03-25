@@ -37,7 +37,7 @@
                    name="registrationPassword" />
             <div class="RegistrationErrorMessage"
                  id="registrationErrorMessage" >
-                    @Model.ErrorMessage
+                    @Model.RegistrationErrorMessage
             </div>  
             <input class="Submit"
                    id="registrationSubmit"
@@ -59,6 +59,10 @@
                    type="password"
                    placeholder="Password"
                    name="authorizationPassword" />
+            <div class="AuthorizationErrorMessage"
+                 id="authorizationErrorMessage">
+                @Model.AuthorizationErrorMessage
+            </div>
             <input class="Submit" 
                    id="authorizationSubmit"
                    type="submit"
