@@ -2,6 +2,7 @@
 using SQLitePCL;
 using fgeek.Services.Interfaces;
 using fgeek.Entities.Interfaces;
+using fgeek.Entities;
 
 namespace fgeek.Services
 {
@@ -9,10 +10,7 @@ namespace fgeek.Services
     {
         private SQLiteAsyncConnection? connection;
 
-        public DatabaseService() 
-        {
-
-        }
+        public DatabaseService() { }
 
         public void Open(string path)
         {
@@ -25,7 +23,7 @@ namespace fgeek.Services
             connection = new(databasePath);
         }  
 
-        public async Task<int>InsertAsync<T>(T item) where T : IEntity
+        public async Task<int> InsertAsync<T>(T item) where T : IEntity
         {
             return await connection!.InsertAsync(item);
         }
@@ -34,6 +32,16 @@ namespace fgeek.Services
         {
             return await connection!.Table<T>().
                          ToListAsync();
+        }
+
+        public async Task<int> UpdateAsync<T>(T item) where T : IEntity
+        {
+            return await connection!.UpdateAsync(item);
+        }
+
+        public async Task<int> DeleteAsync<T>(T item) where T : IEntity
+        {
+            return await connection!.DeleteAsync(item);
         }
     }
 }

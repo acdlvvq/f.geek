@@ -16,6 +16,8 @@ namespace fgeek.Entities
         public string Username { get; set; }
         [Column("password")]
         public string Password { get; set; }
+        [Column("like_ids")]
+        public byte[] LikeIds { get; set; }
         public static Func<User, bool> CompareId(string id)
         {
             return item => { return item.Id == id; };
@@ -36,13 +38,15 @@ namespace fgeek.Entities
         public User()
         {
             Id = Email = Username = Password = "Undefiened";
+            LikeIds = [];
         }
-        public User(string id, string email, string username, string password)
+        public User(string id, string email, string username, string password, byte[] likeIds)
         {
             Id = id;
             Email = email;
             Username = username;
             Password = password;
+            LikeIds = likeIds;
         }
 
         public override string ToString()

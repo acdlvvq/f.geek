@@ -228,6 +228,14 @@
     width: 800px;
 }
 
+.LikeButtonFrame {
+    background-color: red;
+}
+
+.LikeButton {
+
+}
+
 .MovieReleaseDateHeader {
     font-family: Coustard;
     font-size: large;

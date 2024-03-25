@@ -38,21 +38,22 @@ namespace fgeek.Pages.Html
                 var user = new User(string.Empty,
                                     registrationEmail,
                                     registrationUsername,
-                                    registrationPassword);
+                                    registrationPassword,
+                                    []);
                 await accountService.CreateAccountAsync(user);
                 logger.LogInformation
-                 (
+                (
                     "[{DateTime}] - Account '{Username}' ({Email}) Created",
                     DateTime.Now,
                     user.Username,
                     user.Email
-                 );
+                );
 
                 var claims = new List<Claim>
-                    {
-                        new (ClaimTypes.NameIdentifier, user.Id),
-                        new (ClaimTypes.Name, user.Username)
-                    };
+                {
+                    new (ClaimTypes.NameIdentifier, user.Id),
+                    new (ClaimTypes.Name, user.Username)
+                };
                 var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
 
                 await HttpContext.SignInAsync

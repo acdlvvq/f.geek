@@ -6,7 +6,7 @@
     <head>
         <title>Movie</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../Assets/Styles/Style.css"/>
+        <link rel="stylesheet" href="../Assets/Styles/MovieStyles.css"/>
     </head>
 
     <body>
@@ -50,6 +50,12 @@
         <div class="MainContent">
             <img class="MoviePoster" src=@Model.Movie?.PosterURL />
             <div class="MovieTitle">@Model.Movie?.Title</div>
+            <div class="LikesCount">@Model.Movie?.LikesCount</div>
+            <form class="LikeForm" method="post">
+                <button class="LikeButtonFrame" id="likeButton">
+                    <img class="LikeButton" src="@(Model.Liked() ? "../Assets/Images/filled-heart.jpg" : "../Assets/Images/unfilled-heart.png")" />
+                </button>
+            </form>
             <div class="MovieReleaseDateHeader">Release Date</div>
             <div class="MovieReleaseDate">@Model.Movie?.ReleaseDate</div>
             <div class="MovieProductionCountriesHeader">Production Countries</div>
@@ -105,4 +111,16 @@
             <div class="MovieDescription">@(Model.Movie?.Description)</div>
         </div>
     </body>
+
+    <script type="text/javascript">
+        const filled = "url('../Assets/Images/filled-heart.png')";
+        const unfilled = "url('../Assets/Images/unfilled-heart.png')";
+
+        let likeButton = document.getElementById('likeButton');
+
+        /*likeButton.addEventListener("click", () => {
+
+        });*/
+    </script>
+
 </html>

@@ -2,6 +2,8 @@
 using fgeek.Entities;
 using fgeek.Exceptions;
 using System.Text;
+using System.Security.Cryptography;
+using System.Linq;
 
 namespace fgeek.Services
 {
@@ -15,7 +17,7 @@ namespace fgeek.Services
             databaseService.Open("Accounts.db");
         }
 
-        public async Task<bool> IsAlreadyTakenField(Func<User, bool> compare)
+        public async Task<bool> IsAlreadyTakenFieldAsync(Func<User, bool> compare)
         {
             return (await databaseService!.TableAsync<User>()).
                     AsParallel().
@@ -25,13 +27,15 @@ namespace fgeek.Services
 
         public async Task CreateAccountAsync(User user)
         {
-            user.Id = Guid.NewGuid().ToString();
+            user.Id = BitConverter.ToString(SHA256.HashData(
+                      Encoding.UTF8.GetBytes(user.Username))).
+                      Replace("-", "");
 
-            var isAlreadyTakenEmail = IsAlreadyTakenField
+            var isAlreadyTakenEmail = IsAlreadyTakenFieldAsync
             (
                 User.CompareEmail(user.Email)
             );
-            var isAlreadyTakenUsername = IsAlreadyTakenField
+            var isAlreadyTakenUsername = IsAlreadyTakenFieldAsync
             (
                 User.CompareUsername(user.Username)
             );
@@ -68,7 +72,7 @@ namespace fgeek.Services
             return accounts.First();
         }
 
-        public async Task<User> UserById(string id)
+        public async Task<User> UserByIdAsync(string id)
         {
             var accounts = (await databaseService!.TableAsync<User>()).
                            Where
@@ -89,6 +93,75 @@ namespace fgeek.Services
             }
 
             return accounts.First();
+        }
+
+        // mb search by hashing id's
+        public async Task<bool> IsLikedMovieAsync(string userId, string movieId)
+        {
+            var likes = ByteConverterService.ToIntCollection
+            (
+                (await UserByIdAsync(userId)).LikeIds
+            );
+
+            return (await databaseService!.TableAsync<Like>()).
+                    Where(item => item.TargetType == "Movie").
+                    Where(item => item.TargetId == movieId).
+                    Where(item => likes.Contains(item.Id)).
+                    Any();
+        }
+
+        public async Task Like(string userId, string itemId, string itemType)
+        {
+            var id = BitConverter.ToInt32
+            (
+                SHA256.HashData(Encoding.UTF8.GetBytes
+                (
+                    new StringBuilder().
+                        Append(userId).
+                        Append(itemId).
+                        Append(itemType).
+                        ToString()
+                ))    
+            );
+
+            var user = await UserByIdAsync(userId);
+            var like = new Like(id, DateTime.Now, itemType, itemId);
+
+            var likes = ByteConverterService.ToIntCollection(user.LikeIds);
+            likes = likes.Append(id);
+            user.LikeIds = ByteConverterService.ToByteCollection(likes).ToArray();
+
+            var update = databaseService!.UpdateAsync(user);
+            var insert = databaseService!.InsertAsync(like);
+
+            Task.WaitAll(update, insert);
+        }
+
+        public async Task Unlike(string userId, string itemId, string itemType)
+        {
+            var id = BitConverter.ToInt32
+            (
+                SHA256.HashData(Encoding.UTF8.GetBytes
+                (
+                    new StringBuilder().
+                        Append(userId).
+                        Append(itemId).
+                        Append(itemType).
+                        ToString()
+                ))
+            );
+
+            var user = await UserByIdAsync(userId);
+            var like = new Like(id, DateTime.Now, itemType, itemId);
+
+            var likes = ByteConverterService.ToIntCollection(user.LikeIds);
+            likes = likes.Except([id]);
+            user.LikeIds = ByteConverterService.ToByteCollection(likes).ToArray();
+
+            var update = databaseService!.UpdateAsync(user);
+            var delete = databaseService!.DeleteAsync(like);
+           
+            Task.WaitAll(update, delete);
         }
     }
 }

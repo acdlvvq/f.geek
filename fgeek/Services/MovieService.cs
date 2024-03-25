@@ -19,22 +19,23 @@ namespace fgeek.Services
                     .FirstOrDefault();
         }
 
-        public async Task<IEnumerable<Genre>> Genres(string id)
+        public async Task<IEnumerable<Genre>> GenresAsync(string id)
         {
-            var movieGenresBytes = (await MovieAsync(id))!.GenreIds;
-            var movieGenres = new int[movieGenresBytes.Length / sizeof(int)];
-            Buffer.BlockCopy(movieGenresBytes, 0, movieGenres, 0, movieGenresBytes.Length);
+            var genres = ByteConverterService.ToIntCollection
+            (
+                (await MovieAsync(id))!.GenreIds
+            );
 
             return (await databaseService.TableAsync<Genre>()).
-                    Where(item => movieGenres.Contains(item.Id));
+                    Where(item => genres.Contains(item.Id));
         }
 
-        public async Task<IEnumerable<Country>> ProductionCountries(string id)
+        public async Task<IEnumerable<Country>> ProductionCountriesAsync(string id)
         {
-            var countriesBytes = (await MovieAsync(id))!.
-                                  ProductionCountriesIds;
-            var countries = new int[countriesBytes.Length / sizeof(int)];
-            Buffer.BlockCopy(countriesBytes, 0, countries, 0, countriesBytes.Length);
+            var countries = ByteConverterService.ToIntCollection
+            (
+                (await MovieAsync(id))!.ProductionCountriesIds
+            );
 
             return (await databaseService.TableAsync<Country>()).
                     Where(item => countries.Contains(item.Id));
@@ -46,35 +47,43 @@ namespace fgeek.Services
                     Where(item => item.Title.Contains(request, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        public async Task<IEnumerable<Crew>> Crew(string id, string department)
+        public async Task<IEnumerable<Crew>> CrewAsync(string id, string department)
         {
-            var crewByte = (await MovieAsync(id))!.CrewIds;
-            var crew = new int[crewByte.Length / sizeof(int)];
-            Buffer.BlockCopy(crewByte, 0, crew, 0, crewByte.Length);
+            var crew = ByteConverterService.ToIntCollection
+            (
+                (await MovieAsync(id))!.CrewIds
+            );
 
             return (await databaseService.TableAsync<Crew>()).
                     Where(item => crew.Contains(item.Id)).
                     Where(item => item.Department == department);
         }
 
-        public async Task<IEnumerable<Cast>> Cast(string id)
+        public async Task<IEnumerable<Cast>> CastAsync(string id)
         {
-            var castByte = (await MovieAsync(id))!.CastIds;
-            var cast = new int[castByte.Length / sizeof(int)];
-            Buffer.BlockCopy(castByte, 0, cast, 0, castByte.Length);
+            var cast = ByteConverterService.ToIntCollection
+            (
+                (await MovieAsync(id))!.CastIds
+            );
 
             return (await databaseService.TableAsync<Cast>()).
                     Where(item => cast.Contains(item.Id));
         }
 
-        public async Task<IEnumerable<Video>> Video(string id)
+        public async Task<IEnumerable<Video>> VideoAsync(string id)
         {
-            var videosByte = (await MovieAsync(id))!.VideoIds;
-            var videos = new int[videosByte.Length / sizeof(int)];
-            Buffer.BlockCopy(videosByte, 0, videos, 0, videosByte.Length);
+            var videos = ByteConverterService.ToIntCollection
+            (
+                (await MovieAsync(id))!.VideoIds
+            );
 
             return (await databaseService.TableAsync<Video>()).
                     Where(item => videos.Contains(item.Id));
+        }
+
+        public async Task UpdateMovieAsync(Movie movie)
+        {
+            await databaseService.UpdateAsync(movie);
         }
     }
 }
